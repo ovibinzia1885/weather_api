@@ -20,7 +20,7 @@ from django.urls import path
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('weatherapp.urls')),
+    path('',include('weatherapp.urls',namespace='weatherapp')),
 ]
 
 if settings.DEBUG:

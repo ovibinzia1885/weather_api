@@ -36,6 +36,9 @@
                                 </button>
                             </div>
                         </div>
+                         <div class="notification {{ msclass }}">
+                             {{ msg }}
+                         </div>
                     </form>
                 </div>
             </div>
@@ -61,6 +64,14 @@
                                         <span class="subtitle">{{city_weather.temperature}} F</span>
                                         <br>{{city_weather.description}}
                                     </p>
+                                </div>
+                                <div class="media-right delete ">
+                                   <a href="{%url 'Weatherapp:city_delete' city_name=city_weather.city%}">
+                                       <button class="delete">
+
+                                       </button>
+                                    </a>
+
                                 </div>
                             </div>
                         </article>
