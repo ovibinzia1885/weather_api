@@ -66,7 +66,7 @@
                                     </p>
                                 </div>
                                 <div class="media-right delete ">
-                                   <a href="{%url 'Weatherapp:city_delete' city_name=city_weather.city%}">
+                                   <a href="{% url 'weatherapp:City_remove'  city_weather.city %}">
                                        <button class="delete">
 
                                        </button>

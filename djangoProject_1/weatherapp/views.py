@@ -15,6 +15,7 @@ def CityWeaterView(request):
             city_count=City.objects.filter(name=new_city).count()
             if city_count==0:
                 r=requests.get(url.format(new_city)).json()
+
                 if r['cod']==200:
                     form.save()
                 else:
@@ -42,7 +43,7 @@ def CityWeaterView(request):
         weather_data.append(city_weather)
         print(weather_data)
     context={
-        'weather_data':city_weather,
+        'weather_data':weather_data,
         'form':form,
         'msg':msg,
         'msclass':msclass,
@@ -50,7 +51,9 @@ def CityWeaterView(request):
     }
     return  render(request,'weather.html',context)
 
+
 def City_delete(request,city_name):
     city=get_object_or_404(City,name=city_name)
     city.delete()
-    return redirect('city_weather')
+
+    return redirect('weatherapp:home')
